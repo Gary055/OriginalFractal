@@ -9,13 +9,14 @@ public void draw()
 }
 public void Fractal(int x, int y, int size)
 {
-  int a = x;
-  int b = y;
-  int sizeA = size;
-  int sizeB = size;
-  if(a-sizeA/2 > 500)
-    a = 500;
-  else if(a+sizeA/2 < 500)
-    sizeA = 500-a;
-  rect(a-sizeA/2, b-sizeB/2, sizeA, sizeB);
+  if(size<20)
+  rect(x-size/2, y-size/2, size, size);
+  else
+  {
+  rect(x-size/2, y-size/2, size, size);
+  fill((float)(Math.random()*255), (float)(Math.random()*255), (float)(Math.random()*255));
+  Fractal(x-size, y-size,8*size/10);
+  fill((float)(Math.random()*255), (float)(Math.random()*255), (float)(Math.random()*255));
+  Fractal(x+size, y+size,9*size/10);
+  }
 }
